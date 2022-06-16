@@ -30,22 +30,19 @@ const fall = (ar) => {
   let res = [];
   let subRes = [];
   for(let i = 0; i < ar.length-1; i++) {
-      if(ar[i] > ar[i+1]) {
-          subRes.push(ar[i]);
-          if(i === ar.length-2) {
+    subRes.push(ar[i]);
+    if(ar[i] > ar[i+1]) {
+        if(i === ar.length-2) {
               subRes.push(ar[i+1]);
               res = subRes.length > res.length ?
               subRes : res;
           }
       }
       else {
-          subRes.push(ar[i]);
           if(subRes.length > res.length) {
               res = subRes.slice();
-              subRes = [];
-          } else {
-              subRes = []
-          }
+          } 
+          subRes = []
       }
   }
   return res.join(", ");
